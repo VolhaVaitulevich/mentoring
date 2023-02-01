@@ -9,7 +9,7 @@ body {
   height: 500vh;
 }
 
-nav {
+.navigation {
   position: fixed;
   top: 0;
   left: 0;
@@ -22,11 +22,11 @@ nav {
   transition: width 0.2s ease;
 }
 
-nav:hover {
+.navigation:hover {
   width: 15rem;
 }
 
-nav a {
+.navigation .navigation__network {
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -38,22 +38,22 @@ nav a {
   transition: all 0.2s ease;
 }
 
-a:hover {
+.navigation__network:hover {
   color: #ecf0f1;
   background-color: #f1c40f;
 }
 
-i {
+.fa-brands {
   width: 2rem;
 }
 
-span {
+.navigation_text {
   display: none;
 }
-nav:hover span {
+.navigation:hover .navigation_text {
   display: inline;
 }
 
-nav:hover a {
+.navigation:hover .navigation__network {
   width: 15rem;
 }
