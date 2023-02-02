@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100wv;
+  height: 500vh;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 6rem;
+  background-color: grey;
+  transition: width 0.2s ease;
+}
+
+.navigation:hover {
+  width: 15rem;
+}
+
+.navigation .navigation__network {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #bdc3c7;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navigation__network:hover {
+  color: #ecf0f1;
+  background-color: #f1c40f;
+}
+
+.fa-brands {
+  width: 2rem;
+}
+
+.navigation_text {
+  display: none;
+}
+.navigation:hover .navigation_text {
+  display: inline;
+}
+
+.navigation:hover .navigation__network {
+  width: 15rem;
+}
