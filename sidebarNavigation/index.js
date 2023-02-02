@@ -33,10 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   twitterLink.append(twitterIcon);
   linkedinLink.append(linkedinIcon);
 
-  navigation.append(instagramLink);
-  navigation.append(facebookLink);
-  navigation.append(twitterLink);
-  navigation.append(linkedinLink);
+  navigation.append(instagramLink, facebookLink, twitterLink, linkedinLink);
 
   //add navigation sidebar to the page
   documentBody.append(navigation);
