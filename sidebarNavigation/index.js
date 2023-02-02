@@ -44,16 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
   //eventlistener for :hover
   navigation.addEventListener("mouseenter", (event) => {
     const instagramText = document.createElement("span");
-    instagramText.className = "navigation__instagram-text";
+    instagramText.className = "navigation_text navigation__instagram-text";
     instagramText.innerHTML = "Instagram";
     const facebookText = document.createElement("span");
-    facebookText.className = "navigation__facebook-text";
+    facebookText.className = "navigation_text navigation__facebook-text";
     facebookText.innerHTML = "Facebook";
     const twitterText = document.createElement("span");
-    twitterText.className = "navigation__twitter-text";
+    twitterText.className = "navigation_text navigation__twitter-text";
     twitterText.innerHTML = "Twitter";
     const linkedinText = document.createElement("span");
-    linkedinText.className = "navigation__linkedin-text";
+    linkedinText.className = "navigation_text navigation__linkedin-text";
     linkedinText.innerHTML = "Linkedin";
 
     instagramLink.prepend(instagramText);
@@ -63,5 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //eventlistener when mouse is out from navigation
-  navigation.addEventListener("mouseleave", (event) => {});
+  navigation.addEventListener("mouseleave", (event) => {
+    const navigationText = document.querySelectorAll(".navigation_text");
+    navigationText.forEach((item) => item.remove());
+  });
 });
