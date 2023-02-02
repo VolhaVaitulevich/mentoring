@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //create nested links
   const instagramLink = document.createElement("a");
-  instagramLink.className = "navigation__network navigation__instagram";
+  instagramLink.className = "navigation__network";
   const facebookLink = document.createElement("a");
-  facebookLink.className = "navigation__network navigation__facebook";
+  facebookLink.className = "navigation__network";
   const twitterLink = document.createElement("a");
-  twitterLink.className = "navigation__network navigation__twitter";
+  twitterLink.className = "navigation__network";
   const linkedinLink = document.createElement("a");
-  linkedinLink.className = "navigation__network navigation__linkedin";
+  linkedinLink.className = "navigation__network";
 
   //add images for links
   const instagramIcon = document.createElement("i");
@@ -41,16 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
   //eventlistener for :hover
   navigation.addEventListener("mouseenter", (event) => {
     const instagramText = document.createElement("span");
-    instagramText.className = "navigation_text navigation__instagram-text";
+    instagramText.className = "navigation_text";
     instagramText.innerHTML = "Instagram";
     const facebookText = document.createElement("span");
-    facebookText.className = "navigation_text navigation__facebook-text";
+    facebookText.className = "navigation_text";
     facebookText.innerHTML = "Facebook";
     const twitterText = document.createElement("span");
-    twitterText.className = "navigation_text navigation__twitter-text";
+    twitterText.className = "navigation_text";
     twitterText.innerHTML = "Twitter";
     const linkedinText = document.createElement("span");
-    linkedinText.className = "navigation_text navigation__linkedin-text";
+    linkedinText.className = "navigation_text";
     linkedinText.innerHTML = "Linkedin";
 
     instagramLink.prepend(instagramText);
