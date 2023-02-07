@@ -9,7 +9,6 @@
     <title>Concept Practice</title>
   </head>
   <body>
-    <div class="page-content-container">
       <div class="images-container">
         <img src="https://picsum.photos/200?random=1" data-id="1" />
         <img src="https://picsum.photos/200?random=2" data-id="2" />
@@ -20,22 +19,21 @@
         <img src="https://picsum.photos/200?random=7" data-id="7" />
         <img src="https://picsum.photos/200?random=8" data-id="8" />
         <img src="https://picsum.photos/200?random=9" data-id="9" />
+        <div class="highlight-images">
+          <input
+            id="image-selector"
+            type="number"
+            min="1"
+            max="9"
+            value="0"
+            placeholder="Select image number" />
+          <input
+            class="button button__highlight"
+            type="button"
+            value="Highlight" />
+          <input class="button button__clear" type="button" value="Clear" />
+        </div>
       </div>
-      <aside>
-        <input
-          id="image-selector"
-          type="number"
-          min="1"
-          max="9"
-          value="0"
-          placeholder="Select image number" />
-        <input
-          class="button button__highlight"
-          type="button"
-          value="Highlight" />
-        <input class="button button__clear" type="button" value="Clear" />
-      </aside>
-    </div>
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
