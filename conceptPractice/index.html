@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Concept Practice</title>
+  </head>
+  <body>
+    <div class="page-content-container">
+      <div class="images-container">
+        <img src="https://picsum.photos/200?random=1" data-id="1" />
+        <img src="https://picsum.photos/200?random=2" data-id="2" />
+        <img src="https://picsum.photos/200?random=3" data-id="3" />
+        <img src="https://picsum.photos/200?random=4" data-id="4" />
+        <img src="https://picsum.photos/200?random=5" data-id="5" />
+        <img src="https://picsum.photos/200?random=6" data-id="6" />
+        <img src="https://picsum.photos/200?random=7" data-id="7" />
+        <img src="https://picsum.photos/200?random=8" data-id="8" />
+        <img src="https://picsum.photos/200?random=9" data-id="9" />
+      </div>
+      <aside>
+        <input
+          id="image-selector"
+          type="number"
+          min="1"
+          max="9"
+          value="0"
+          placeholder="Select image number" />
+        <input
+          class="button button__highlight"
+          type="button"
+          value="Highlight" />
+        <input class="button button__clear" type="button" value="Clear" />
+      </aside>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
