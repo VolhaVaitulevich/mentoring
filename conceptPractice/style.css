@@ -10,15 +10,35 @@ body {
 
 .images-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+  "header header header header"
+  "image image image input"
+  "image image image input"
+  "image image image input"
+  "image image image input";
+  justify-content: center;
   gap: 20px;
-  margin: 20px calc((100% - 640px) / 2);
+  margin: 20px;
 }
 
+header {
+  grid-area: header;
+  width: 100%;
+  background-color: powderblue;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.images-gallery {
+  grid-area: image;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
 .highlight-images {
-  grid-row: 1 / 4;
-  grid-column: 4;
+  grid-area: input;
   margin: 20px 0;
   height: 100vh;
   display: flex;
