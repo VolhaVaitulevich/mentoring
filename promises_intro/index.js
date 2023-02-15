@@ -55,21 +55,24 @@ addPostForm.addEventListener('submit', (event) => {
     if (title.trim()) {
         //find post we need to delete
         const postToDelete = cachedPosts.find((post) => post.title === title);
-        fetch(`http://localhost:3000/posts/${postToDelete.id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-        .then((response) => {
-            response.json();
-            const postToDeleteCache = cachedPosts.findIndex((post) => post.title === title);
-            cachedPosts.splice(postToDeleteCache, 1); 
-            //delete post from the page
-            
-        })
+        if (postToDelete)
+        {
+            fetch(`http://localhost:3000/posts/${postToDelete.id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then((response) => {
+                response.json();
+                const postToDeleteIndex = cachedPosts.findIndex((post) => post.title === title);
+                const liTags = document.querySelectorAll('li');
+                liTags[postToDeleteIndex].parentNode.removeChild(liTags[postToDeleteIndex]);
+                cachedPosts.splice(postToDeleteIndex, 1); 
+            })
 
-        deletePostInput.value = '';
-        deletePostInput.focus(); 
+            deletePostInput.value = '';
+            deletePostInput.focus(); 
+        }
     }
  })
