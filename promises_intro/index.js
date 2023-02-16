@@ -15,6 +15,11 @@ const addPost = (post) => {
     cachedPosts.push(post);
 }
 
+const removePosts = () => {
+    const liTags = document.querySelectorAll('li');
+    liTags.forEach((li) => li.remove())
+}
+
 const getPosts = fetch("http://localhost:3000/posts");
 
 getPosts.then((response) => response.json())
@@ -66,9 +71,11 @@ addPostForm.addEventListener('submit', (event) => {
             .then((response) => {
                 response.json();
                 const postToDeleteIndex = cachedPosts.findIndex((post) => post.title === title);
-                const liTags = document.querySelectorAll('li');
-                liTags[postToDeleteIndex].parentNode.removeChild(liTags[postToDeleteIndex]);
                 cachedPosts.splice(postToDeleteIndex, 1); 
+
+                //rerender posts
+                removePosts();
+                cachedPosts.forEach((post) => addPost(post));
             })
 
             deletePostInput.value = '';
