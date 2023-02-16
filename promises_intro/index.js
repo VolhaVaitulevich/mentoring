@@ -35,22 +35,26 @@ addPostForm.addEventListener('submit', (event) => {
     const title = addPostInput.value;
     const id = String(Math.random()); 
 
-    if (title.trim()) {
-        const newPost = { id, title };
-        fetch("http://localhost:3000/posts", {
-            method: "POST",
-            body: JSON.stringify(newPost),
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-        .then((response) => response.json())
-        .then((post) => addPost(post));
-        
-        addPostInput.value = '';
-        addPostInput.focus(); 
-    } 
-    
+    //check if post with this title exists
+    if (cachedPosts.find((post) => post.title === title)) {
+        alert(`Post with title ${title} already exists!`);
+    } else {
+        if (title.trim()) {
+            const newPost = { id, title };
+            fetch("http://localhost:3000/posts", {
+                method: "POST",
+                body: JSON.stringify(newPost),
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then((response) => response.json())
+            .then((post) => addPost(post));
+            
+            addPostInput.value = '';
+            addPostInput.focus(); 
+        } 
+    }
  })       
 
  deletePostForm.addEventListener('submit', (event) => {
@@ -80,6 +84,8 @@ addPostForm.addEventListener('submit', (event) => {
 
             deletePostInput.value = '';
             deletePostInput.focus(); 
+        } else {
+            alert(`Post with title ${title} is not found`);
         }
     }
  })
