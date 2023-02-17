@@ -12,12 +12,6 @@ const addPost = (post) => {
     const { title: postTitle } = post;
     li.innerText = postTitle;
     ul.append(li);
-    cachedPosts.push(post);
-}
-
-const removePosts = () => {
-    const liTags = document.querySelectorAll('li');
-    liTags.forEach((li) => li.remove())
 }
 
 const getPosts = fetch("http://localhost:3000/posts");
@@ -26,6 +20,7 @@ getPosts.then((response) => response.json())
         .then((posts) => {
             posts.forEach((post) => {
                 addPost(post);
+                cachedPosts.push(post);
             })
         })
 
@@ -49,7 +44,10 @@ addPostForm.addEventListener('submit', (event) => {
                 }
             })
             .then((response) => response.json())
-            .then((post) => addPost(post));
+            .then((post) => {
+                addPost(post);
+                cachedPosts.push(post);
+            });
             
             addPostInput.value = '';
             addPostInput.focus(); 
@@ -78,7 +76,7 @@ addPostForm.addEventListener('submit', (event) => {
                 cachedPosts.splice(postToDeleteIndex, 1); 
 
                 //rerender posts
-                removePosts();
+                ul.innerHTML = '';
                 cachedPosts.forEach((post) => addPost(post));
             })
 
