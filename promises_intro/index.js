@@ -14,6 +14,10 @@ const addPost = (post) => {
     ul.append(li);
 }
 
+const findPost = (title) => {
+    return cachedPosts.find((post) => post.title === title);
+}
+
 const getPosts = fetch("http://localhost:3000/posts");
 
 getPosts.then((response) => response.json())
@@ -30,29 +34,29 @@ addPostForm.addEventListener('submit', (event) => {
     const title = addPostInput.value;
     const id = String(Math.random()); 
 
-    //check if post with this title exists
-    if (cachedPosts.find((post) => post.title === title)) {
-        alert(`Post with title ${title} already exists!`);
-    } else {
-        if (title.trim()) {
-            const newPost = { id, title };
-            fetch("http://localhost:3000/posts", {
-                method: "POST",
-                body: JSON.stringify(newPost),
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            })
-            .then((response) => response.json())
-            .then((post) => {
-                addPost(post);
-                cachedPosts.push(post);
-            });
-            
-            addPostInput.value = '';
-            addPostInput.focus(); 
+    if (title.trim()) {
+        //check if post with this title exists
+        if (findPost(title)) {
+            alert(`Post with title ${title} already exists!`);
+            return;
         } 
-    }
+        const newPost = { id, title };
+        fetch("http://localhost:3000/posts", {
+            method: "POST",
+            body: JSON.stringify(newPost),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then((response) => response.json())
+        .then((post) => {
+            addPost(post);
+            cachedPosts.push(post);
+        });
+        
+        addPostInput.value = '';
+        addPostInput.focus(); 
+    } 
  })       
 
  deletePostForm.addEventListener('submit', (event) => {
@@ -61,7 +65,7 @@ addPostForm.addEventListener('submit', (event) => {
     const title = deletePostInput.value;
     if (title.trim()) {
         //find post we need to delete
-        const postToDelete = cachedPosts.find((post) => post.title === title);
+        const postToDelete = findPost(title);
         if (postToDelete)
         {
             fetch(`http://localhost:3000/posts/${postToDelete.id}`, {
