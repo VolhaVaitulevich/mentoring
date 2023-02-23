@@ -1,4 +1,3 @@
-const { response } = require('express');
 const express = require('express');
 const path = require('path');
 
@@ -19,12 +18,7 @@ const POSTS =
 
 
 app.use('/', express.json());
-
-//TBC
-//check if this is needed here or can be changes in html
-app.get('/index.js', (req, res) => {
-    res.sendFile(path.join(__dirname+'/index.js'));
-})
+app.use('/', express.static(path.join(__dirname)));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/index.html'));
