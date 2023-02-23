@@ -32,7 +32,6 @@ app.get('/', (req, res) => {
 
 app.get('/posts', (req, res) => {
     res.status(200).json(POSTS);
-    //add errors
 })
 
 app.post('/posts', (req, res) => {
@@ -42,15 +41,12 @@ app.post('/posts', (req, res) => {
 })
 
 app.delete('/posts/:id', (req, res) => {
-    const postToDeleteIndex = POSTS.findIndex((post) => {
-        post.title === req.body.title;
-    });
-    if (postToDeleteIndex) {
-        POSTS.splice(postToDeleteIndex,1);
-        res.status(200).json(POSTS);
-    }
+    const postToDeleteId = req.params.id;
+    const postToDeleteIndex = POSTS.findIndex((post) => post.id === postToDeleteId);
+    POSTS.splice(postToDeleteIndex,1);
+    res.status(200).json(POSTS);
 })
 
 app.listen(port, () => {
     console.log(`Listen on the port ${port}...`);
-})
+}) 
