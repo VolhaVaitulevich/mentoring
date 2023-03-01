@@ -1,0 +1,27 @@
+li {
+    color: red;
+}
+
+.main li {
+    color: green;
+}
+ 
+.main ul:not(.main > ul) li{
+    color: blue;
+} 
+
+.main > ul li:nth-child(1) {
+    color: pink;
+}
+
+.main ul:not(.main > ul) li:last-of-type {
+    color: tomato;
+}
+
+li:not(.main li):nth-child(1) {
+    color: grey;
+}
+
+.main > ul li:nth-child(even) {
+    color: purple;
+}
