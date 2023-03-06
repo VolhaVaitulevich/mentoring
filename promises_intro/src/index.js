@@ -18,10 +18,11 @@ const findPost = (title) => {
     return cachedPosts.find((post) => post.title === title);
 }
 
-const getPosts = fetch("http://localhost:3000/posts");
+const getPosts = fetch("http://localhost:8000/posts");
 
 getPosts.then((response) => response.json())
         .then((posts) => {
+            console.log('posts');
             posts.forEach((post) => {
                 addPost(post);
                 cachedPosts.push(post);
@@ -41,7 +42,7 @@ addPostForm.addEventListener('submit', (event) => {
             return;
         } 
         const newPost = { id, title };
-        fetch("http://localhost:3000/posts", {
+        fetch("http://localhost:8000/posts", {
             method: "POST",
             body: JSON.stringify(newPost),
             headers: {
@@ -68,14 +69,13 @@ addPostForm.addEventListener('submit', (event) => {
         const postToDelete = findPost(title);
         if (postToDelete)
         {
-            fetch(`http://localhost:3000/posts/${postToDelete.id}`, {
+            fetch(`http://localhost:8000/posts/${postToDelete.id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
                 }
             })
-            .then((response) => {
-                response.json();
+            .then(() => {
                 const postToDeleteIndex = cachedPosts.findIndex((post) => post.title === title);
                 cachedPosts.splice(postToDeleteIndex, 1); 
 
