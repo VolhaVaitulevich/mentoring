@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Counters } from "./components/counters/Counters";
-import GridElement from "./components/gridElement/GridElement";
+import { GridElement } from "./components/gridElement/GridElement";
 import "./styles.css";
 
 function App() {

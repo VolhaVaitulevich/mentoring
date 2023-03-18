@@ -1,25 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import './Button.css';
 
-class Button extends React.Component {
-    constructor (props) {
-        super (props);
-        this.state = {isClicked: false};
-        this.handleClick = this.handleClick.bind(this);
+export const Button = (props) => {
+
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+        setIsClicked(!isClicked);
     }
 
-    handleClick () {
-        this.setState({isClicked: !this.state.isClicked})
-    }
-
-    render () {
-        return (
-            <button 
-            className="button"
-            data-clicked={this.state.isClicked}
-            onClick={this.handleClick}>Click</button>
-        );
-    }
+    return (
+        <button 
+        className="button"
+        data-clicked={isClicked}
+        onClick={handleClick}>Click</button>
+    );
 }
-
-export default Button;
