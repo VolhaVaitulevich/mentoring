@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const Clock = (props) => {
+const Clock = (props) => {
     
     const [time, setTime] = useState(new Date())
 
@@ -16,3 +16,5 @@ export const Clock = (props) => {
         <h2 className = 'clock'>{ time.toLocaleTimeString() }</h2>    
     )
 }
+
+export default Clock

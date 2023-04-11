@@ -1,18 +1,15 @@
-import React, { useState } from "react";
-import './Button.css';
+import React from "react";
+import './styles.css';
 
-export const Button = (props) => {
-
-    const [isClicked, setIsClicked] = useState(false);
+export const Button = ({ title }) => {
 
     const handleClick = () => {
-        setIsClicked(!isClicked);
+        console.log('Button was clicked');
     }
 
     return (
         <button 
         className="button"
-        data-clicked={isClicked}
-        onClick={handleClick}>Click</button>
+        onClick={handleClick}>{title}</button>
     );
 }

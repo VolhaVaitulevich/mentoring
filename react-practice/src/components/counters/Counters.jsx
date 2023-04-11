@@ -1,9 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Counter } from "../counter/Counter";
+import React, { Fragment, useState } from "react";
+import Counter from "../counter/Counter";
 
-export const Counters = (props) => {
-    const [total, setTotal] = useState(0)
-    const countersInitialData =
+const countersInitialData =
         [
             {
                 id: 1,
@@ -27,9 +25,11 @@ export const Counters = (props) => {
                 max: 50,
             }
         ]
-    useEffect (() => {
-        setTotal(countersInitialData.reduce((acc, item) => acc + item.count,0))
-    }, [])
+
+
+const Counters = () => {
+    const initialTotal = countersInitialData.reduce((acc, item) => acc + item.count,0)
+    const [total, setTotal] = useState(initialTotal)
 
     const handleDecreaseTotal = (step) => {
         setTotal(total - step);
@@ -56,3 +56,5 @@ export const Counters = (props) => {
         }
     </Fragment> )
 }
+
+export default Counters

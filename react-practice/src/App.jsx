@@ -1,21 +1,29 @@
-import React, { Fragment } from "react";
-import { Counters } from "./components/counters/Counters";
-import { GridElement } from "./components/gridElement/GridElement";
+import React, { Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import {createBrowserHistory} from "history";
+ 
 import "./styles.css";
+import { routes } from "./routes";
+import Loader from "./components/loader/Loader";
 
-function App() {
+
+const history = createBrowserHistory();
+
+export const App = () => {
   return (
-    <Fragment>
-      <div className="clocks_container"> 
-      {
-        new Array(3).fill(null).map((_, index) => <GridElement key={`column-${index}`} />)
-      }
-      </div>
-      <hr />
-      <div className="counters_container">
-        <Counters />
-      </div>
-    </Fragment>
+    <Router history={history}>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          {routes.map((route) => (
+            <Route {...route} key={route.path}/>
+          ))}
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }
 

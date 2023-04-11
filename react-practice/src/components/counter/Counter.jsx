@@ -1,31 +1,50 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import './styles.css';
 
-export const Counter = (props) => {
-    const [count, setCount] = useState(props.count)
-    const step = props.step
-    const min = props.min
-    const max = props.max
 
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'decrease': {
+            return state - action.payload.step
+        }
+        case 'increase': {
+            return state + action.payload.step
+        }
+        default: return state
+    }
+}
+
+const Counter = ({ 
+    count, 
+    step, 
+    min, 
+    max, 
+    handleDecreaseTotal, 
+    handleIncreaseTotal
+}) => {
+    const [counterState, dispatch] = useReducer(reducer, count)
+    
     const handleDerease = () => {
-        if (count - step >= min) {
-            setCount(count - step);
-            props.handleDecreaseTotal(step);   
+        if (counterState - step >= min) {
+            dispatch({type: 'decrease', payload: step})
+            handleDecreaseTotal(step);   
         }
     }
 
    const handleIncrease = () => {
-        if (count + step <= max) {
-            setCount(count + step);
-            props.handleIncreaseTotal(step);
+        if (counterState + step <= max) {
+            dispatch({type: 'increase', payload: step})
+            handleIncreaseTotal(step)
         }
     }
 
     return (
         <div className="counter">
             <button onClick={handleDerease}>Decrease</button>
-            <span>{count}</span>
+            <span>{counterState}</span>
             <button onClick={handleIncrease}>Increase</button>
         </div>
     )
 }
+
+export default Counter
