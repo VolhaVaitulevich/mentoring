@@ -1,0 +1,4 @@
+export const NAME_FORM_ACTION_TYPES = {
+    UPDATE_NAME: 'UPDATE_NAME',
+    RESET_NAME: 'RESET_NAME'
+}

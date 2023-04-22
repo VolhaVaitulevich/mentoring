@@ -1,0 +1,25 @@
+.post-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.post-form > * {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.post-form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-form-inputs > * {
+    width: 150px;
+}
+
+.post-form-inputs input {
+    padding: 5px;
+}

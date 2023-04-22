@@ -1,0 +1,20 @@
+.comments_form {
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.comments_form input {
+    width: 100%;
+}
+
+
+.comments_form button {
+    align-self: end;
+}
+
+

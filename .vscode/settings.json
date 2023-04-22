@@ -1,5 +1,6 @@
 {
     "workbench.settings.editor": "ui",
     "workbench.settings.useSplitJSON": false,
-    "workbench.settings.openDefaultSettings": false
+    "workbench.settings.openDefaultSettings": false,
+    "git.ignoreLimitWarning": true
 }

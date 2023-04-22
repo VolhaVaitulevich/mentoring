@@ -1,0 +1,66 @@
+.header {
+    position: 'sticky';
+    top: 0;
+    z-index: 1;
+    width: '100%';
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    transition: background 1s;
+}
+
+.header[data-theme='light'] {
+    background: #b6dcfa;
+}
+
+.header[data-orientation='vertical'] {
+    padding: 10px;
+    position: fixed;
+    height: 100%;
+    flex-direction: column;
+}
+
+.logo {
+    background-image: url('../../assets/logo.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+.header-menu {
+    flex-grow: 1;
+    transition: background 1s;
+}
+
+.header-menu[data-theme='light'] {
+    background: #b6dcfa;
+    color: #001529; 
+}
+
+.header-menu[data-theme='light'] li.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected {
+    background: #64a8f2;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-menu-dark .ant-menu-item-selected, :where(.css-dev-only-do-not-override-1vtf12y).ant-menu-dark>.ant-menu .ant-menu-item-selected {
+    background: #64a8f2; 
+}
+
+.header-options {
+    display: flex;
+    gap: 10px;
+}
+
+.header-options[data-theme='light'] .button {
+    background: #3a87e6;
+}
+
+.header-options[data-theme='light'] .button:not(:disabled):hover {
+    background: #64a8f2;
+}
+
+.header-options[data-orientation='vertical'] {
+    flex-direction: column;
+    margin-bottom: 65px;
+}

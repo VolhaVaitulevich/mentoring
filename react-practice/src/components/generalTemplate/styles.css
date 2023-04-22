@@ -1,0 +1,27 @@
+.footer {
+    background: #001529;
+    transition: background 2s;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footer[data-theme='light'] {
+    background: #b6dcfa;
+    color: #555;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+ .content {
+    min-height: calc(100vh - 150px);
+    margin: 50px;
+}
+
+.content[data-orientation='vertical'] {
+    margin: 50px 0 50px 150px;
+}
