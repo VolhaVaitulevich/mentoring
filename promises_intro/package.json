@@ -1,11 +1,11 @@
 {
   "name": "promises_intro",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:local": "json-server --watch db.json"
+    "start:local": "json-server --watch db.json",
+    "start": "nodemon server.js"
   },
   "keywords": [
     "js",
@@ -15,7 +15,12 @@
   "author": "Voytulevich",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "json-server": "^0.17.1",
-    "nanoid": "^4.0.1"
-  }
+    "nanoid": "^4.0.1",
+    "path": "^0.12.7",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "description": ""
 }
