@@ -6,6 +6,7 @@ const CommentsPage = () => {
   return (
     <GeneralTemplate>
       <CommentsWrapper/>
+      <CommentsWrapper/>
     </GeneralTemplate>
   );
 }

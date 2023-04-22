@@ -3,7 +3,7 @@ import { paths } from "./paths";
 
 const HomePage = React.lazy(() => import('./pages/home/HomePage'))
 const CommentsPage = React.lazy(() => import('./pages/comments/CommentsPage'))
-const OtherPage = React.lazy(() => import('./pages/other/OtherPage'))
+const OthersPage = React.lazy(() => import('./pages/others/OthersPage'))
 
 export const routes = [
     {
@@ -15,7 +15,7 @@ export const routes = [
         path: paths.comments(),
     },
     {
-        element: <OtherPage />,
+        element: <OthersPage />,
         path: paths.others(),
     }
 ]
