@@ -1,8 +1,8 @@
 import React from "react"
 import { paths } from "./paths"
 
-const HomePage = React.lazy(() => import('./pages/HomePage'))
-const TasksOverview = React.lazy(() => import('./pages/TasksOverview'))
+const HomePage = React.lazy(() => import('./pages/homePage/HomePage'))
+const TasksOverview = React.lazy(() => import('./pages/tasksOverview/TasksOverview'))
 
 export const routes = [
     {
