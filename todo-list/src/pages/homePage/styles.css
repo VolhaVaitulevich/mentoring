@@ -1,6 +1,6 @@
 .container {
+    padding: 50px 0;
     min-height: 100vh;
-    transition: background-image 5s ease-in-out
 }
 
 .container[data-theme='light'] {
@@ -12,5 +12,7 @@
 }
 
 .page-content {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

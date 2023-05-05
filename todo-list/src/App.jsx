@@ -6,10 +6,8 @@ import {
 } from "react-router-dom";
 import { createBrowserHistory } from "history"
 import { routes } from "./routes"
-
 import ThemeContext from "./context/themeContext"
 import TasksContext from "./context/tasksContext"
-
 import "./App.css"
 
 const history = createBrowserHistory()
@@ -20,10 +18,10 @@ function App() {
 
   useEffect(() => { 
     async function fetchTasksData() {
-    const res = await fetch("http://localhost:8080/tasks")
-    const data = await res.json()
-    data.sort((item1, item2) => item1.completed === item2.completed ? 0 : item1.completed ? 1 : -1)
-    setTasks(data)
+      const res = await fetch("http://localhost:8080/tasks")
+      const data = await res.json()
+      data.sort((item1, item2) => item1.completed === item2.completed ? 0 : item1.completed ? 1 : -1)
+      setTasks(data)
     }
     fetchTasksData()
   }, [])

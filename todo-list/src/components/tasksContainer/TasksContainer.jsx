@@ -4,13 +4,13 @@ import "./styles.css"
 const TasksContainer = ({ tasks, onDelete, onComplete}) => {
   if (!tasks.length) {
     return (
-      <div className="tasks-list">
-        <h3>There are no tasks to complete</h3>    
+      <div className="tasks-cards-list">
+        <h3>No tasks to complete</h3>    
       </div>
     )
   } else 
   return (
-    <div className="tasks-list">
+    <div className="tasks-cards-list">
       {tasks?.map((task) => (
         <TaskCard 
           key={task.id} 

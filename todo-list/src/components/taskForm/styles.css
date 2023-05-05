@@ -2,7 +2,6 @@
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.51);
     border-radius: 10px;
     padding: 20px;
@@ -34,13 +33,12 @@
     transition: background 1s ease, color 1s ease;
 }
 
-.task-form button[data-theme="dark"] {
-    background: #5C5C5C;
-    color: #EAEAEA;
-}
-
-
 .task-form button[data-theme="light"] {
     background: #38ada9;
     color: #fff;
+}
+
+.task-form button[data-theme="dark"] {
+    background: #111;
+    color: #EAEAEA;
 }

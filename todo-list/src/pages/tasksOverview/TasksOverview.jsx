@@ -3,7 +3,6 @@ import Header from "../../components/header/Header"
 import TasksList from "../../components/tasksList/TasksList"
 import TasksContext from "../../context/tasksContext"
 import ThemeContext from "../../context/themeContext"
-
 import "./styles.css"
 
 const TasksOverview = () => {
@@ -16,9 +15,9 @@ const TasksOverview = () => {
     
     return (
         <>
-            <Header></Header>
+            <Header />
             <div className="tasks-overview" data-theme={dataTheme}>
-                <div className="tasks_lists">
+                <div>
                     <TasksList header={`New (${newTasks.length})`} tasks={newTasks} />
                     <TasksList header={`Completed (${completedTasks.length})`} tasks={completedTasks} />
                 </div>

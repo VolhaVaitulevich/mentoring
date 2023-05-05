@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import Header from "../../components/header/Header.jsx"
 import TaskForm from "../../components/taskForm/TaskForm.jsx"
 import TasksContainer from "../../components/tasksContainer/TasksContainer.jsx"
 import ThemeContext from "../../context/themeContext.js"
 import TasksContext from "../../context/tasksContext.js"
-
 import "./styles.css"
 
 const HomePage = () => {
@@ -35,7 +34,6 @@ const HomePage = () => {
                     "Content-Type": "application/json",
                 }
             })
-            //update to newTasksList
             const newTasksList = tasks.map((task) => task.id===id ? {...task, completed: true}: task)
             newTasksList.sort((item1, item2) => item1.completed === item2.completed ? 0 : item1.completed ? 1 : -1)
             setTasks(newTasksList)
@@ -58,17 +56,19 @@ const HomePage = () => {
     }
 
     return (
-        <div className="container" data-theme={dataTheme}>
+        <>
             <Header />
-            <div className="page-content">
-                <TaskForm onAdd={addTasks}/>
-                <TasksContainer 
-                    tasks={tasks} 
-                    onDelete={deleteTask} 
-                    onComplete={completeTask}
-                />
+            <div className="container" data-theme={dataTheme}>
+                <div className="page-content">
+                    <TaskForm onAdd={addTasks}/>
+                    <TasksContainer 
+                        tasks={tasks} 
+                        onDelete={deleteTask} 
+                        onComplete={completeTask}
+                    />
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

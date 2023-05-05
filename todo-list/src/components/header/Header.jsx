@@ -29,7 +29,6 @@ const Header = () => {
                   >Overview</NavLink>
               </li>
             </ul>
-            {/* <button className="theme-toggler" onClick={toggleTheme}>Change theme</button> */}
             <div>
               <input onChange={toggleTheme}
               type="checkbox" className="checkbox" id="checkbox"/>
