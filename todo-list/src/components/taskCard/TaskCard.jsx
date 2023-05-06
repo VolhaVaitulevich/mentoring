@@ -11,19 +11,19 @@ const TaskCard = ({ task, onDelete, onComplete }) => {
   const dataTheme = isDarkTheme ? "dark" : "light"
 
   return (
-    <div className={`check task-card ${completedTask}`}>
-      {/* <input 
-        type="checkbox" 
-        disabled={task.completed}
-        checked={task.completed}
-        onChange={() => onComplete(task.id)}
-      />
-      <span className={`task ${completedTask}`}>{task.text} {" "}</span> */}
-      <div>
-        <input type="checkbox" className="check__input"></input>
-        <p className="check__box" />
-      </div>
-      <span className={`task ${completedTask}`}>{task.text} {" "}</span>
+    <div className={`task-card ${completedTask}`}>
+      <label>
+        <input 
+          type="checkbox" 
+          className="check-input" 
+          disabled={task.completed}
+          checked={task.completed}
+          onChange={() => onComplete(task.id)}
+        >
+        </input>
+        <p className="check-box" data-theme={dataTheme}/>
+      </label>
+      <p className={`task ${completedTask}`}>{task.text} {" "}</p>
       <button 
         className={`delete-button ${completedTask}`}
         onClick={() => onDelete(task.id)}>
