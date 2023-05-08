@@ -1,0 +1,120 @@
+@property --backgroundColorLeft {
+  syntax: "<color>";
+  initial-value: #3c6382;
+  inherits: false;
+}
+
+@property --backgroundColorRight {
+  syntax: "<color>";
+  initial-value: #1e3799;
+  inherits: false;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  padding: 20px 0;
+  background-image: linear-gradient(90deg, var(--backgroundColorLeft), var(--backgroundColorRight)); 
+  transition: --backgroundColorLeft 1s ease, --backgroundColorRight 1s ease; 
+}
+
+.header[data-theme="false"] {
+  --backgroundColorLeft: #b8e994;
+  --backgroundColorRight: #82ccdd;
+}
+
+.header ul {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.header ul li > * {
+  font-size: 20px;
+  text-decoration: none;
+  height: 80px;
+  color: #8c8c8c;
+  transition: color 1s ease;
+  outline: 0;
+}
+
+.header[data-theme="false"] ul li > *:focus {
+  box-shadow: 0 0 3px #38ada9;
+}
+
+.header[data-theme="true"] ul li > *:focus {
+  box-shadow: 0 0 3px #60a3bc;
+}
+
+.header ul li > *:hover {
+  color: #fff;
+}
+
+.header[data-theme="false"] ul li > .active-class {
+  color: #079992;
+}
+
+.header[data-theme="true"] ul li > .active-class {
+  color: #111;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.51);
+  border-radius: 10px;
+  padding: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+  
+.checkbox-label {
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.checkbox-label[data-theme="false"] {
+  background-color: #38ada9;
+} 
+
+.checkbox-label[data-theme="true"] {
+  background-color: #111;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox-label .ball[data-theme="true"] {
+  transform: translateX(20px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+  
+.fa-sun {
+  color: #f39c12;
+}

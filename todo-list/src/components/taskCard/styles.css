@@ -1,0 +1,95 @@
+.task-card {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.task-card input {
+    cursor: pointer;
+}
+
+.task {
+    font-size: 20px;
+    flex-grow: 1;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+}
+
+.task.completed {
+    text-decoration: line-through;
+}
+
+.delete-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    border-radius: 3px;
+}
+
+.task-card[data-theme="false"] .delete-button:focus
+{
+    box-shadow: 0 0 3px #38ada9;
+}
+
+.task-card[data-theme="true"] .delete-button:focus
+{ 
+    box-shadow: 0 0 3px #3c6382; 
+}
+
+.fa-trash {
+    transition: color 1s ease;
+    height: 20px;
+}
+
+.fa-trash[data-theme="false"] {
+    color: #079992;
+}
+
+.check-input {
+    appearance: none;
+    position: absolute;
+}
+
+.check-input:checked:disabled + .check-box {
+    background-image: url('../../assets/check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: default;
+    transition: background-color 1s ease;
+}
+
+.check-input:checked:disabled + .check-box[data-theme="false"] {
+    background-color: #83CCC8;
+}
+
+.check-input:checked:disabled + .check-box[data-theme="true"] {
+    background-color: #5e6868;
+}
+
+.check-input:focus + .check-box[data-theme="false"] {
+    box-shadow: 0 0 0 2px #38ada9;
+}
+
+.check-input:focus + .check-box[data-theme="true"] {
+    box-shadow: 0 0 0 2px #60a3bc;
+}
+
+.check-box {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+    transition: background-color 1s ease;
+}
+
+.check-box[data-theme="false"] {
+    background-color: #38ada9;
+}
+
+.check-box[data-theme="true"] {
+    background-color: #1a2828;
+}
