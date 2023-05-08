@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useCallback, useContext } from "react"
 import Header from "../../components/header/Header.jsx"
 import TaskForm from "../../components/taskForm/TaskForm.jsx"
 import TasksContainer from "../../components/tasksContainer/TasksContainer.jsx"
@@ -7,10 +7,10 @@ import './styles.css'
 import TasksContext from "../../context/tasksContext.js"
 
 const HomePageWrapper = () => {
-    const {tasks, setTasks} = useContext(TasksContext)
+    const { tasks, setTasks } = useContext(TasksContext)
     const { isDarkTheme } = useContext(ThemeContext)
 
-    const handleAdd = async (task) => {
+    const handleAdd = useCallback(async (task) => {
         try {
             const result = await fetch("http://localhost:8080/tasks",
             {
@@ -23,9 +23,9 @@ const HomePageWrapper = () => {
         } catch(err) {
             alert(err)
         }
-    }
+    }, [tasks])
 
-    const handleComplete = async (id) => {
+    const handleComplete = useCallback(async (id) => {
         const taskToUpdate = tasks.find((task) => task.id === id)
         taskToUpdate.completed = true
         try {
@@ -44,9 +44,9 @@ const HomePageWrapper = () => {
         } catch(err) {
             alert(err)
         }
-    }
+    }, [tasks])
 
-    const handleDelete = async (id) => {
+    const handleDelete = useCallback(async (id) => {
         try {
             await fetch(`http://localhost:8080/tasks/${id}`,
             {
@@ -56,7 +56,7 @@ const HomePageWrapper = () => {
         } catch(err) {
             alert(err)
         }
-    }
+    }, [tasks])
 
     return (
         <>
