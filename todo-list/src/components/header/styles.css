@@ -107,7 +107,7 @@
   transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .checkbox-label .ball {
+.checkbox-label .ball[data-theme="true"] {
   transform: translateX(20px);
 }
 

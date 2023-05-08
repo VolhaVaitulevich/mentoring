@@ -42,7 +42,10 @@ const Header = () => {
               >
                 <FontAwesomeIcon icon={faMoon} className="fa-moon" />
                 <FontAwesomeIcon icon={faSun} className="fa-sun" />
-                <span className="ball"></span>
+                <span 
+                  className="ball"
+                  data-theme={isDarkTheme}
+                />
               </label>
             </div>
           </div>
