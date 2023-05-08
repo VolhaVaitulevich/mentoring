@@ -7,7 +7,6 @@ import "./styles.css"
 
 const TasksOverview = () => {
     const { isDarkTheme } = useContext(ThemeContext)
-    const dataTheme = isDarkTheme ? "dark" : "light"
 
     const {tasks} = useContext(TasksContext)
     const newTasks = tasks.filter((task) => !task.completed)
@@ -16,10 +15,10 @@ const TasksOverview = () => {
     return (
         <>
             <Header />
-            <div className="tasks-overview" data-theme={dataTheme}>
+            <div className="tasks-overview" data-theme={isDarkTheme}>
                 <div>
-                    <TasksList header={`New (${newTasks.length})`} tasks={newTasks} />
-                    <TasksList header={`Completed (${completedTasks.length})`} tasks={completedTasks} />
+                    <TasksList listTytle={`New (${newTasks.length})`} tasks={newTasks} />
+                    <TasksList listTytle={`Completed (${completedTasks.length})`} tasks={completedTasks} />
                 </div>
             </div>
         </>

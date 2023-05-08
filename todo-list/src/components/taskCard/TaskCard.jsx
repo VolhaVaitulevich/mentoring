@@ -8,10 +8,12 @@ const TaskCard = ({ task, onDelete, onComplete }) => {
   const completedTask = task.completed ? "completed" : "new"
 
   const { isDarkTheme } = useContext(ThemeContext)
-  const dataTheme = isDarkTheme ? "dark" : "light"
 
   return (
-    <div className={`task-card ${completedTask}`}>
+    <div 
+      className={`task-card ${completedTask}`}
+      data-theme={isDarkTheme}
+    >
       <label>
         <input 
           type="checkbox" 
@@ -21,16 +23,18 @@ const TaskCard = ({ task, onDelete, onComplete }) => {
           onChange={() => onComplete(task.id)}
         >
         </input>
-        <p className="check-box" data-theme={dataTheme}/>
+        <p className="check-box" data-theme={isDarkTheme}/>
       </label>
       <p className={`task ${completedTask}`}>{task.text} {" "}</p>
       <button 
         className={`delete-button ${completedTask}`}
-        onClick={() => onDelete(task.id)}>
-          <FontAwesomeIcon 
-            className="fa-trash"
-            data-theme={dataTheme}
-            icon={faTrash}/>
+        onClick={() => onDelete(task.id)}
+      >
+        <FontAwesomeIcon 
+          className="fa-trash"
+          data-theme={isDarkTheme}
+          icon={faTrash}
+        />
       </button>
     </div>
   )

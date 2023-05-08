@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react"
+import React, { Suspense, useCallback, useEffect, useState } from "react"
 import {
   BrowserRouter as Router,
   Route,
@@ -16,15 +16,23 @@ function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [tasks, setTasks] = useState([])
 
+  
+  const fetchTasksData = useCallback(
+    async() => {
+      try {
+        const res = await fetch("http://localhost:8080/tasks")
+        const data = await res.json()
+        data.sort((item1, item2) => item1.completed - item2.completed)
+        setTasks(data)
+      } catch(err) {
+        alert(err)
+      }
+    }, []
+  )
+
   useEffect(() => { 
-    async function fetchTasksData() {
-      const res = await fetch("http://localhost:8080/tasks")
-      const data = await res.json()
-      data.sort((item1, item2) => item1.completed === item2.completed ? 0 : item1.completed ? 1 : -1)
-      setTasks(data)
-    }
     fetchTasksData()
-  }, [])
+  }, [fetchTasksData])
 
   return (
     <Router history={history}>

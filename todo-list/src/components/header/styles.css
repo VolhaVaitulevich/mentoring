@@ -1,31 +1,26 @@
-/* @property --backgroudColorLeft {
-  syntax: '<color>';
-  initial-value: #b8e994;
+@property --backgroundColorLeft {
+  syntax: "<color>";
+  initial-value: #3c6382;
   inherits: false;
 }
 
-@property --backgroudColorRight {
-  syntax: '<color>';
-  initial-value: #82ccdd;
+@property --backgroundColorRight {
+  syntax: "<color>";
+  initial-value: #1e3799;
   inherits: false;
-} */
+}
 
 .header {
   width: 100%;
   height: 80px;
   padding: 20px 0;
-  /* transition: --backgroudColorLeft 3s, --backgroudColorRight 3s; */
+  background-image: linear-gradient(90deg, var(--backgroundColorLeft), var(--backgroundColorRight)); 
+  transition: --backgroundColorLeft 1s ease, --backgroundColorRight 1s ease; 
 }
 
-.header[data-theme='light'] {
-  background-image: linear-gradient(90deg, #b8e994, #82ccdd); 
-  /* background-image: linear-gradient(90deg, var(--backgroudColorLeft), var(--backgroudColorRight)); */
-}
-
-.header[data-theme='dark'] {
-  background-image: linear-gradient(90deg, #3c6382, #1e3799); 
-  /* --backgroudColorLeft: #1e3799;
-  --backgroudColorRight: #3c6382; */
+.header[data-theme="false"] {
+  --backgroundColorLeft: #b8e994;
+  --backgroundColorRight: #82ccdd;
 }
 
 .header ul {
@@ -38,15 +33,29 @@
   font-size: 20px;
   text-decoration: none;
   height: 80px;
-  color: #5C5C5C;
+  color: #8c8c8c;
+  transition: color 1s ease;
+  outline: 0;
+}
+
+.header[data-theme="false"] ul li > *:focus {
+  box-shadow: 0 0 3px #38ada9;
+}
+
+.header[data-theme="true"] ul li > *:focus {
+  box-shadow: 0 0 3px #60a3bc;
 }
 
 .header ul li > *:hover {
   color: #fff;
 }
 
-.header ul li > .active-class {
-  color: #fff;
+.header[data-theme="false"] ul li > .active-class {
+  color: #079992;
+}
+
+.header[data-theme="true"] ul li > .active-class {
+  color: #111;
 }
 
 .header-content {
@@ -80,11 +89,11 @@
   transition: background-color 0.5s ease;
 }
 
-.checkbox-label[data-theme='light'] {
+.checkbox-label[data-theme="false"] {
   background-color: #38ada9;
 } 
 
-.checkbox-label[data-theme='dark'] {
+.checkbox-label[data-theme="true"] {
   background-color: #111;
 }
 
@@ -99,7 +108,7 @@
 }
 
 .checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
+  transform: translateX(20px);
 }
 
 .fa-moon {

@@ -26,6 +26,18 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
+    outline: 0;
+    border-radius: 3px;
+}
+
+.task-card[data-theme="false"] .delete-button:focus
+{
+    box-shadow: 0 0 3px #38ada9;
+}
+
+.task-card[data-theme="true"] .delete-button:focus
+{ 
+    box-shadow: 0 0 3px #3c6382; 
 }
 
 .fa-trash {
@@ -33,12 +45,8 @@
     height: 20px;
 }
 
-.fa-trash[data-theme="light"] {
+.fa-trash[data-theme="false"] {
     color: #079992;
-}
-
-.delete-button:focus {
-    outline: #78e08f;
 }
 
 .check-input {
@@ -54,12 +62,20 @@
     transition: background-color 1s ease;
 }
 
-.check-input:checked:disabled + .check-box[data-theme="light"] {
+.check-input:checked:disabled + .check-box[data-theme="false"] {
     background-color: #83CCC8;
 }
 
-.check-input:checked:disabled + .check-box[data-theme="dark"] {
+.check-input:checked:disabled + .check-box[data-theme="true"] {
     background-color: #5e6868;
+}
+
+.check-input:focus + .check-box[data-theme="false"] {
+    box-shadow: 0 0 0 2px #38ada9;
+}
+
+.check-input:focus + .check-box[data-theme="true"] {
+    box-shadow: 0 0 0 2px #60a3bc;
 }
 
 .check-box {
@@ -70,14 +86,10 @@
     transition: background-color 1s ease;
 }
 
-.check-box[data-theme="light"] {
+.check-box[data-theme="false"] {
     background-color: #38ada9;
 }
 
-.check-box[data-theme="dark"] {
+.check-box[data-theme="true"] {
     background-color: #1a2828;
-}
-
-.check-input:focus + .check-box {
-    box-shadow:0 0 0 0.2em #78e08f;
 }

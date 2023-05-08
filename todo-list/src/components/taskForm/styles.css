@@ -16,7 +16,15 @@
     border: none;
     border-radius: 10px;
     width: 100%;
-    outline: none;
+    outline: 0;
+}
+
+.task-form[data-theme="false"] input:focus {
+    box-shadow: 0 0 4px #60a3bc;
+}
+
+.task-form[data-theme="true"] input:focus {
+    box-shadow: 0 0 4px #3c6382;
 }
 
 .task-form button {
@@ -24,20 +32,30 @@
     padding: 5px 15px;
     border: none;
     border-radius: 10px;
-    color: #EAEAEA;
     position: absolute;
     right: 1em;
     margin: 5px 5px 0 0;
     cursor: pointer;
     transition: background 1s ease, color 1s ease;
+    outline: 0;
 }
 
-.task-form button[data-theme="light"] {
+.task-form[data-theme="false"] button {
     background: #38ada9;
     color: #fff;
+    outline-color: #93e6a5;
 }
 
-.task-form button[data-theme="dark"] {
+.task-form[data-theme="true"] button {
     background: #111;
     color: #EAEAEA;
+    outline-color: #60a3bc;
+}
+
+.task-form[data-theme="false"] button:focus {
+    box-shadow: 0 0 4px #60a3bc;
+}
+
+.task-form[data-theme="true"] button:focus {
+    box-shadow: 0 0 4px #3c6382;
 }

@@ -8,11 +8,10 @@ import "./styles.css"
 
 const Header = () => {
     const { isDarkTheme, toggleTheme } = useContext(ThemeContext)
-    const dataTheme = isDarkTheme ? "dark" : "light"
 
     return (
-        <header className="header" data-theme={dataTheme}>
-          <div className="header-content" data-theme={dataTheme}>
+        <header className="header" data-theme={isDarkTheme}>
+          <div className="header-content" data-theme={isDarkTheme}>
             <ul>
               <li> 
                   <NavLink 
@@ -30,9 +29,17 @@ const Header = () => {
               </li>
             </ul>
             <div>
-              <input onChange={toggleTheme}
-              type="checkbox" className="checkbox" id="checkbox"/>
-              <label htmlFor="checkbox" className="checkbox-label" data-theme={dataTheme}>
+              <input 
+                onChange={toggleTheme}
+                type="checkbox" 
+                className="checkbox" 
+                id="checkbox"
+              />
+              <label 
+                htmlFor="checkbox" 
+                className="checkbox-label" 
+                data-theme={isDarkTheme}
+              >
                 <FontAwesomeIcon icon={faMoon} className="fa-moon" />
                 <FontAwesomeIcon icon={faSun} className="fa-sun" />
                 <span className="ball"></span>

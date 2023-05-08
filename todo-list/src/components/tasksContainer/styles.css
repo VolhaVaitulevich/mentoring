@@ -11,3 +11,11 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.empty-cards-list {
+    transition: color 1s ease;
+}
+
+.empty-cards-list[data-theme="false"] {
+    color: #38ada9;
+}
