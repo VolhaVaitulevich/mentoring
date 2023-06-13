@@ -1,21 +1,19 @@
-function add(a, b) {
-    let result = '';
-    let carry = 0;
-    let i = a.length - 1;
-    let j = b.length - 1;
-  
-    while (i >= 0 || j >= 0 || carry > 0) {
-      const digitA = i >= 0 ? parseInt(a[i]) : 0;
-      const digitB = j >= 0 ? parseInt(b[j]) : 0;
-      const sum = digitA + digitB + carry;
-      const digitSum = sum % 10;
-      carry = Math.floor(sum / 10);
-  
-      result = digitSum.toString() + result;
-  
-      i--;
-      j--;
+function permutations(string) {
+  const combinations = new Set();
+
+  function generateCombinations(prefix, remaining) {
+    if (remaining.length === 0) {
+      combinations.add(prefix);
+    } else {
+      for (let i = 0; i < remaining.length; i++) {
+        generateCombinations(
+          prefix + remaining[i],
+          remaining.slice(0, i) + remaining.slice(i + 1)
+        );
+      }
     }
-  
-    return result;
   }
+
+  generateCombinations('', string);
+  return Array.from(combinations);
+}
